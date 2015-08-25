@@ -30,7 +30,7 @@ class LockableModel(models.Model):
     _locked_at = models.DateTimeField(db_column='locked_at', 
         null=True,
         editable=False)
-    _locked_by = models.ForeignKey(auth.User, 
+    _locked_by = models.ForeignKey(settings.AUTH_USER_MODEL, 
         db_column='locked_by',
         related_name="working_on_%(class)s",
         null=True,
